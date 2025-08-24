@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
+// --- Begin web.php routes ---
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
@@ -29,7 +30,7 @@ Route::middleware(['auth'])->group(function () {
 
 require __DIR__.'/auth.php';
 
-// Dusk-only login route for browser tests
+// --- Begin dusk.php routes ---
 Route::get('/dusk/login/{id}', function ($id) {
     \Auth::loginUsingId($id);
     return redirect('/');

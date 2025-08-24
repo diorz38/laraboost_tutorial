@@ -67,6 +67,14 @@ class User extends Authenticatable
     }
 
     /**
+     * Get the SKPs for the user.
+     */
+    public function skps()
+    {
+        return $this->hasMany(Skp::class);
+    }
+
+    /**
      * Get the documents for the user.
      */
     public function documents()

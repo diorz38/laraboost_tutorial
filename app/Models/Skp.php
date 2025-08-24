@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Skp extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'user_id',
         'jenis',
@@ -16,4 +19,12 @@ class Skp extends Model
         'link',
         'konten',
     ];
+
+    /**
+     * Get the user that owns the SKP.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
